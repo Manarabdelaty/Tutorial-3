@@ -77,6 +77,8 @@ docker run -it -v $(pwd):/data openroad/opensta
 
 Using `-v <host-folder>:<docker-folder>` option mounts the current directory to `data` directory inside the docker container.
 
+Check [OpenSTA command reference](https://github.com/The-OpenROAD-Project/OpenSTA/blob/master/doc/OpenSTA.pdf).
+
 ## Tutorial
 
 First, clone this repo ``git clone https://github.com/Manarabdelaty/Tutorial-3.git`` , then navigate to the ``Tutorial-3`` folder by `` cd Tutorial-3``
