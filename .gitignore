@@ -1,1 +1,3 @@
 RTL/SPM/*.v
+*.vvp
+*.vcd
