@@ -46,22 +46,44 @@ This will pull opensta docker image if it doesn't exist locally on your machine.
 
 ### Yosys
 
-- Local Installtion. 
-Invoke yosys shell by typing: ``yosys`` in your terminal. 
-
-- Docker Installation.
+ Invoke yosys shell by typing: ``yosys`` in your terminal. 
+ Run tcl synthesis script by using `tcl` command. 
+ `` 
+    tcl <filename>
+ ``
 
 ### OpenSTA
 
 ### Iverilog
 
-Run zero-delay simulations. `` iverilog <testbench> <netlist> -o <vvpfile> -Ttyp``
+`` iverilog <testbench> <netlist> -o <vvpfile> [-Tmin/typ/max] [-gspecify]``
 
-``
-  iverilog RTL/SPM/top_tb.v Netlists/spm.netlist.v -o spm.vvp -Ttyp
-``
+- `-Tmin/typ/max` flag: select min, typ or max times from min:typ:max expressions.
+- `-gspecify` flag: Iveirlog by defualt performs zero delay simulations. In order to account for the delays specified in the cell models file, we need to use this flag to enable specify block support. 
 
-Run delay simulations by adding the `-gspecify` flag.
+
+## Tutorial
+
+1. Run Yosys synthesis script for the SPM multiplier. Invoke yosys shell first ``yosys``. Then run the tcl script to generate the synthesized netlist,
+```
+  tcl yosys.tcl
+```
+This step will generate the SPM's synthesized netlist inside the Netlists folder. 
+
+2. Run the gate level simulations using iverilog, 
+
 ```
 iverilog RTL/SPM/top_tb.v Netlists/spm.netlist.v -o spm.vvp -Ttyp -gspecify
 ```
+Then, run vvp.
+
+```
+  vvp spm.vvp
+```
+
+To view the waveform, use GTKWave. 
+```
+  gtkwave spm.vcd
+```
+
+3. 
