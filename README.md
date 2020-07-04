@@ -52,6 +52,7 @@ This will pull opensta docker image if it doesn't exist locally on your machine.
  `` 
     tcl <filename>
  ``
+ 
 Check [Yosys command reference](http://www.clifford.at/yosys/documentation.html)
 
 ### Iverilog
@@ -69,6 +70,8 @@ Check [Iverilog flags](https://linux.die.net/man/1/iverilog)
 
 
 ## Tutorial
+
+First, clone this repo ``git clone https://github.com/Manarabdelaty/Tutorial-3.git`` , then navigate to the ``Tutorial-3`` folder by `` cd Tutorial-3``
 
 1. Run Yosys synthesis script for the SPM multiplier. Invoke yosys shell first ``yosys``. Then run the tcl script to generate the synthesized netlist,
 ```
