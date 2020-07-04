@@ -55,5 +55,13 @@ Invoke yosys shell by typing: ``yosys`` in your terminal.
 
 ### Iverilog
 
+Run zero-delay simulations. `` iverilog <testbench> <netlist> -o <vvpfile> -Ttyp``
 
+``
+  iverilog RTL/SPM/top_tb.v Netlists/spm.netlist.v -o spm.vvp -Ttyp
+``
 
+Run delay simulations by adding the `-gspecify` flag.
+```
+iverilog RTL/SPM/top_tb.v Netlists/spm.netlist.v -o spm.vvp -Ttyp -gspecify
+```
