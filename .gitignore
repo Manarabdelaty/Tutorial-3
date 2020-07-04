@@ -1,3 +1,4 @@
 RTL/SPM/*.v
 *.vvp
 *.vcd
+yosys.tcl

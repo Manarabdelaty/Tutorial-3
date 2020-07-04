@@ -1,33 +1,33 @@
 yosys -import
 
-#!/usr/bin/tclsh
+# Usage: yosys_generic.tcl <RTL-verilog> <top-module> <liberty-file> <output-name>
 
 # read verilog
-read_verilog RTL/SPM/top.v 
+read_verilog [lindex $argv 0]
 
 # check hierarchy & set top module
-hierarchy -check -top top 
+hierarchy -check -top [lindex $argv 1]
 
 # translate processes (always blocks)
-procs; opt
+procs; opt;
 
 # detect and optimize FSM encodings
-fsm; opt
+fsm; opt;
 
 # implement memories (arrays)
-memory; opt
+memory; opt;
 
 # convert to gate logic
-techmap; opt
+techmap; opt;
 
 # flatten
-flatten; opt
+flatten; opt;
 
 # mapping flip-flops to mycells.lib
-dfflibmap -liberty Tech/osu035/osu035_stdcells.lib
+dfflibmap -liberty [lindex $argv 2]
 
 # mapping logic to mycells.lib
-abc -liberty Tech/osu035/osu035_stdcells.lib
+abc -liberty [lindex $argv 3]
 
 # print gate count
 stat
@@ -35,4 +35,5 @@ stat
 # cleanup
 opt_clean -purge
 
-write_verilog -noattr -noexpr Netlists/spm.netlist.v
+write_verilog -noattr -noexpr [lindex $argv 4]
+
