@@ -7,6 +7,7 @@ A simple tutorial on how to use Yosys and OpenSTA prepared for digital design 2 
 - OpenSTA
 - Icarus Verilog
 - GTKWave
+- Tcl
 
 ## Installing 
 
@@ -17,7 +18,7 @@ If you are working on Ubuntu/macOS, it is easier to install the tools locally on
 Use Homebrew. 
 
 ``
-  brew install Yosys
+  brew install Yosys tcl-tk	
 ``
 
 ### Ubuntu
@@ -25,7 +26,7 @@ Use Homebrew.
 Use apt. 
 
 ``
-sudo apt-get install yosys
+sudo apt-get install yosys tcl-dev
 ``
 
 ### Both
@@ -68,6 +69,17 @@ Check [Iverilog flags](https://linux.die.net/man/1/iverilog)
 
 ### OpenSTA
 
+First run OpenSTA using docker, 
+
+``
+docker run -it -v $(pwd):/data openroad/opensta
+``
+
+Using `-v <host-folder>:<docker-folder>` option mounts the current directory to `data` directory inside the docker container.
+
+Then, run opensta's tcl script,
+
+
 
 ## Tutorial
 
@@ -96,4 +108,43 @@ To view the waveform, use GTKWave.
   gtkwave spm.vcd
 ```
 
-3. 
+3. Run OpenSTA,
+
+``
+docker run -it -v $(pwd):/data openroad/opensta
+``
+
+Read liberty file, 
+``
+read_liberty data/Tech/osu035/osu035_stdcells.lib 
+``
+
+Read synthesized netlist,
+
+``
+read_verilog data/Netlists/spm.netlist.v
+``
+
+Set top module, 
+
+``
+link_design top
+``
+
+Set the clock period,
+
+``
+create_clock -name clk -period 10 {clk}
+``
+
+Set input delays reltive to the clock,
+
+``
+set_input_delay -clock clk 0 {mc mp start}
+``
+
+Generate timing report,
+
+``
+report_checks
+``
