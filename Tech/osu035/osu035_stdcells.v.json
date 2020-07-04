@@ -1,0 +1,483 @@
+{
+  "cells" : [
+    {
+      "name" : "AND2X1",
+      "inputs" : [
+        "A",
+        "B"
+      ],
+      "statements" : [
+        "Y = AND(A, B)"
+      ],
+      "output" : "Y"
+    },
+    {
+      "name" : "AND2X2",
+      "inputs" : [
+        "A",
+        "B"
+      ],
+      "statements" : [
+        "Y = AND(A, B)"
+      ],
+      "output" : "Y"
+    },
+    {
+      "name" : "AOI21X1",
+      "inputs" : [
+        "A",
+        "B",
+        "C"
+      ],
+      "statements" : [
+        "__I0_out___ = AND(A, B)",
+        "__I1_out___ = OR(__I0_out___, C)",
+        "Y = NOT(__I1_out___)"
+      ],
+      "output" : "Y"
+    },
+    {
+      "name" : "AOI22X1",
+      "inputs" : [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "statements" : [
+        "__I0_out___ = AND(A, B)",
+        "__I1_out___ = AND(C, D)",
+        "__I2_out___ = OR(__I0_out___, __I1_out___)",
+        "Y = NOT(__I2_out___)"
+      ],
+      "output" : "Y"
+    },
+    {
+      "name" : "BUFX2",
+      "inputs" : [
+        "A"
+      ],
+      "statements" : [
+        "Y = BUFF(A)"
+      ],
+      "output" : "Y"
+    },
+    {
+      "name" : "BUFX4",
+      "inputs" : [
+        "A"
+      ],
+      "statements" : [
+        "Y = BUFF(A)"
+      ],
+      "output" : "Y"
+    },
+    {
+      "name" : "CLKBUF1",
+      "inputs" : [
+        "A"
+      ],
+      "statements" : [
+        "Y = BUFF(A)"
+      ],
+      "output" : "Y"
+    },
+    {
+      "name" : "CLKBUF2",
+      "inputs" : [
+        "A"
+      ],
+      "statements" : [
+        "Y = BUFF(A)"
+      ],
+      "output" : "Y"
+    },
+    {
+      "name" : "CLKBUF3",
+      "inputs" : [
+        "A"
+      ],
+      "statements" : [
+        "Y = BUFF(A)"
+      ],
+      "output" : "Y"
+    },
+    {
+      "name" : "DFFNEGX1",
+      "inputs" : [
+        "CLK",
+        "D"
+      ],
+      "statements" : [
+        "__I0_CLOCK___ = NOT(CLK)",
+        "__P0002___ = NOT(__DS0000___)",
+        "Q = BUFF(__DS0000___)"
+      ],
+      "output" : "Q"
+    },
+    {
+      "name" : "DFFPOSX1",
+      "inputs" : [
+        "CLK",
+        "D"
+      ],
+      "statements" : [
+        "__P0002___ = NOT(__DS0000___)",
+        "Q = BUFF(__DS0000___)"
+      ],
+      "output" : "Q"
+    },
+    {
+      "name" : "DFFSR",
+      "inputs" : [
+        "CLK",
+        "D",
+        "R",
+        "S"
+      ],
+      "statements" : [
+        "__I0_CLEAR___ = NOT(R)",
+        "__I0_SET___ = NOT(S)",
+        "__D____ = NOT(D)",
+        "__P0002___ = NOT(__P0003___)",
+        "Q = BUFF(__P0002___)",
+        "__\\D&S___ = AND(D, S)",
+        "__I7_out___ = NOT(D)",
+        "__\\~D&R___ = AND(__I7_out___, R)",
+        "__\\S&R___ = AND(S, R)"
+      ],
+      "output" : "Q"
+    },
+    {
+      "name" : "FAX1",
+      "inputs" : [
+        "A",
+        "B",
+        "C"
+      ],
+      "statements" : [
+        "__I0_out___ = AND(A, B)",
+        "__I1_out___ = AND(B, C)",
+        "__I3_out___ = AND(C, A)",
+        "__YC___ = OR(__I0_out___, __I1_out___, __I3_out___)",
+        "__or_out___ = OR(A, B)",
+        "__nand_out___ = NAND(A, B)",
+        "__I5_out___ = AND(__or_out___, __nand_out___)",
+        "__or_out___ = OR(I5_out, C)",
+        "__nand_out___ = NAND(I5_out, C)",
+        "YS = AND(__or_out___, __nand_out___)"
+      ],
+      "output" : "YS"
+    },
+    {
+      "name" : "FILL",
+      "inputs" : [
+        
+      ],
+      "statements" : [
+        
+      ],
+      "output" : ""
+    },
+    {
+      "name" : "HAX1",
+      "inputs" : [
+        "A",
+        "B"
+      ],
+      "statements" : [
+        "__YC___ = AND(A, B)",
+        "__or_out___ = OR(A, B)",
+        "__nand_out___ = NAND(A, B)",
+        "YS = AND(__or_out___, __nand_out___)"
+      ],
+      "output" : "YS"
+    },
+    {
+      "name" : "INVX1",
+      "inputs" : [
+        "A"
+      ],
+      "statements" : [
+        "Y = NOT(A)"
+      ],
+      "output" : "Y"
+    },
+    {
+      "name" : "INVX2",
+      "inputs" : [
+        "A"
+      ],
+      "statements" : [
+        "Y = NOT(A)"
+      ],
+      "output" : "Y"
+    },
+    {
+      "name" : "INVX4",
+      "inputs" : [
+        "A"
+      ],
+      "statements" : [
+        "Y = NOT(A)"
+      ],
+      "output" : "Y"
+    },
+    {
+      "name" : "INVX8",
+      "inputs" : [
+        "A"
+      ],
+      "statements" : [
+        "Y = NOT(A)"
+      ],
+      "output" : "Y"
+    },
+    {
+      "name" : "LATCH",
+      "inputs" : [
+        "CLK",
+        "D"
+      ],
+      "statements" : [
+        "__P0000___ = NOT(__DS0000___)",
+        "Q = BUFF(__DS0000___)"
+      ],
+      "output" : "Q"
+    },
+    {
+      "name" : "MUX2X1",
+      "inputs" : [
+        "A",
+        "B",
+        "S"
+      ],
+      "statements" : [
+        "Y = NOT(__I0_out___)"
+      ],
+      "output" : "Y"
+    },
+    {
+      "name" : "NAND2X1",
+      "inputs" : [
+        "A",
+        "B"
+      ],
+      "statements" : [
+        "__I0_out___ = AND(A, B)",
+        "Y = NOT(__I0_out___)"
+      ],
+      "output" : "Y"
+    },
+    {
+      "name" : "NAND3X1",
+      "inputs" : [
+        "A",
+        "B",
+        "C"
+      ],
+      "statements" : [
+        "__I1_out___ = AND(A, B, C)",
+        "Y = NOT(__I1_out___)"
+      ],
+      "output" : "Y"
+    },
+    {
+      "name" : "NOR2X1",
+      "inputs" : [
+        "A",
+        "B"
+      ],
+      "statements" : [
+        "__I0_out___ = OR(A, B)",
+        "Y = NOT(__I0_out___)"
+      ],
+      "output" : "Y"
+    },
+    {
+      "name" : "NOR3X1",
+      "inputs" : [
+        "A",
+        "B",
+        "C"
+      ],
+      "statements" : [
+        "__I1_out___ = OR(A, B, C)",
+        "Y = NOT(__I1_out___)"
+      ],
+      "output" : "Y"
+    },
+    {
+      "name" : "OAI21X1",
+      "inputs" : [
+        "A",
+        "B",
+        "C"
+      ],
+      "statements" : [
+        "__I0_out___ = OR(A, B)",
+        "__I1_out___ = AND(__I0_out___, C)",
+        "Y = NOT(__I1_out___)"
+      ],
+      "output" : "Y"
+    },
+    {
+      "name" : "OAI22X1",
+      "inputs" : [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "statements" : [
+        "__I0_out___ = OR(A, B)",
+        "__I1_out___ = OR(C, D)",
+        "__I2_out___ = AND(__I0_out___, __I1_out___)",
+        "Y = NOT(__I2_out___)"
+      ],
+      "output" : "Y"
+    },
+    {
+      "name" : "OR2X1",
+      "inputs" : [
+        "A",
+        "B"
+      ],
+      "statements" : [
+        "Y = OR(A, B)"
+      ],
+      "output" : "Y"
+    },
+    {
+      "name" : "OR2X2",
+      "inputs" : [
+        "A",
+        "B"
+      ],
+      "statements" : [
+        "Y = OR(A, B)"
+      ],
+      "output" : "Y"
+    },
+    {
+      "name" : "PADINC",
+      "inputs" : [
+        "YPAD"
+      ],
+      "statements" : [
+        "DI = BUFF(YPAD)"
+      ],
+      "output" : "DI"
+    },
+    {
+      "name" : "PADINOUT",
+      "inputs" : [
+        "DO",
+        "OEN"
+      ],
+      "statements" : [
+        "DI = BUFF(__YPAD___)"
+      ],
+      "output" : "DI"
+    },
+    {
+      "name" : "PADOUT",
+      "inputs" : [
+        "DO"
+      ],
+      "statements" : [
+        "YPAD = BUFF(DO)"
+      ],
+      "output" : "YPAD"
+    },
+    {
+      "name" : "TBUFX1",
+      "inputs" : [
+        "A",
+        "EN"
+      ],
+      "statements" : [
+        "__I0_out___ = NOT(A)"
+      ],
+      "output" : "Y"
+    },
+    {
+      "name" : "TBUFX2",
+      "inputs" : [
+        "A",
+        "EN"
+      ],
+      "statements" : [
+        "__I0_out___ = NOT(A)"
+      ],
+      "output" : "Y"
+    },
+    {
+      "name" : "XNOR2X1",
+      "inputs" : [
+        "A",
+        "B"
+      ],
+      "statements" : [
+        "__or_out___ = OR(A, B)",
+        "__nand_out___ = NAND(A, B)",
+        "__I0_out___ = AND(__or_out___, __nand_out___)",
+        "Y = NOT(__I0_out___)"
+      ],
+      "output" : "Y"
+    },
+    {
+      "name" : "XOR2X1",
+      "inputs" : [
+        "A",
+        "B"
+      ],
+      "statements" : [
+        "__or_out___ = OR(A, B)",
+        "__nand_out___ = NAND(A, B)",
+        "Y = AND(__or_out___, __nand_out___)"
+      ],
+      "output" : "Y"
+    },
+    {
+      "name" : "PADNC",
+      "inputs" : [
+        
+      ],
+      "statements" : [
+        
+      ],
+      "output" : ""
+    },
+    {
+      "name" : "PADFC",
+      "inputs" : [
+        
+      ],
+      "statements" : [
+        
+      ],
+      "output" : ""
+    },
+    {
+      "name" : "PADGND",
+      "inputs" : [
+        
+      ],
+      "statements" : [
+        
+      ],
+      "output" : ""
+    },
+    {
+      "name" : "PADVDD",
+      "inputs" : [
+        
+      ],
+      "statements" : [
+        
+      ],
+      "output" : ""
+    }
+  ]
+}
