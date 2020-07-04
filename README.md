@@ -77,36 +77,33 @@ docker run -it -v $(pwd):/data openroad/opensta
 
 Using `-v <host-folder>:<docker-folder>` option mounts the current directory to `data` directory inside the docker container.
 
-Then, run opensta's tcl script,
-
-
-
 ## Tutorial
 
 First, clone this repo ``git clone https://github.com/Manarabdelaty/Tutorial-3.git`` , then navigate to the ``Tutorial-3`` folder by `` cd Tutorial-3``
 
 1. Run Yosys synthesis script for the SPM multiplier. Invoke yosys shell first ``yosys``. Then run the tcl script to generate the synthesized netlist,
-```
+
+``
   tcl spm.tcl
-```
+``
 This step will generate the SPM's synthesized netlist inside the Netlists folder. 
 
 2. Run the gate level simulations using iverilog, 
 
-```
+``
 iverilog RTL/SPM/top_tb.v Netlists/spm.netlist.v -o spm.vvp -Ttyp -gspecify
-```
+``
 
 Then, run vvp.
 
-```
+``
   vvp spm.vvp
-```
+``
 
 To view the waveform, use GTKWave. 
-```
+``
   gtkwave spm.vcd
-```
+``
 
 3. Run OpenSTA,
 
