@@ -2,7 +2,7 @@
 // author: @manarabdelatty
 // Testbench for top
 
-`timescale 1ns/1ns
+`timescale 1ns/10ps
 
 module top_tb;
 
@@ -36,7 +36,7 @@ module top_tb;
     assign refp= $signed(mc) * $signed(mp);               // Golden Model
     assign err= (done)? (refp != prod) : 1'bx;           // The Checker
     
-    always #1 clk=!clk;                                // Clock Generator
+    always #0.1 clk=!clk;                                // Clock Generator
 
     always @(posedge clk) begin                      // The Checker
          if (done == 1'b1)

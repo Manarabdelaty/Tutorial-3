@@ -12,7 +12,7 @@ hierarchy -check -top top
 procs; opt
 
 # detect and optimize FSM encodings
-fsm; opt
+#fsm; opt
 
 # implement memories (arrays)
 memory; opt
@@ -24,10 +24,10 @@ techmap; opt
 flatten; opt
 
 # mapping flip-flops to mycells.lib
-dfflibmap -liberty Tech/osu035/osu035_stdcells.lib
+dfflibmap -liberty Tech/nangate/NangateOpenCellLibrary_typical.lib
 
 # mapping logic to mycells.lib
-abc -liberty Tech/osu035/osu035_stdcells.lib
+abc -liberty Tech/nangate/NangateOpenCellLibrary_typical.lib
 
 # print gate count
 stat
