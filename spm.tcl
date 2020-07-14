@@ -3,9 +3,11 @@ yosys -import
 #!/usr/bin/tclsh
 
 # read verilog
+# NOTE: change top.v to your top module file name
 read_verilog RTL/SPM/top.v 
 
 # check hierarchy & set top module
+# NOTE: change top to your top module name
 hierarchy -check -top top 
 
 # translate processes (always blocks)
