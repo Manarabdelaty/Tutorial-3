@@ -26,7 +26,13 @@ Use Homebrew.
 Use apt. 
 
 ``
-sudo apt-get install yosys tcl-dev
+sudo apt-get install yosys
+``
+
+Install tcl,
+
+``
+sudo apt-get install -y tcl-dev
 ``
 
 ### Both
