@@ -89,6 +89,20 @@ Check [OpenSTA command reference](https://github.com/The-OpenROAD-Project/OpenST
 
 First, clone this repo ``git clone https://github.com/Manarabdelaty/Tutorial-3.git`` , then navigate to the ``Tutorial-3`` folder by `` cd Tutorial-3``
 
+IMPORTANT: 
+
+Add your multiplier files and testbench under RTL/SPM/, and change the file names accordinagly when running the coming commands. 
+Also, if you have multiple (.v) files,  use ``include`` directive in your top module file. For example, to add the CSADD, TCMP blocks to your top module file use
+
+```
+`include "TCMP.v"
+`include "CSADD.v"
+
+module myTopModule();
+  .....
+endmodule
+```
+
 1. Run Yosys synthesis script for the SPM multiplier. Invoke yosys shell first ``yosys``. Then run the tcl script to generate the synthesized netlist,
 
 ``
